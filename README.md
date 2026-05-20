@@ -590,16 +590,38 @@ CMD ["python", "Backend/main.py"]
 ## 📞 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 & 𝐒𝐨𝐜𝐢𝐚𝐥 𝐏𝐫𝐨𝐟𝐢𝐥𝐞𝐬
 
 ### **Direct Contact**
-📧 **Email**: [support@zaifsecurity.pro](mailto:support@zaifsecurity.pro)  
-📱 **WhatsApp**: [+966 540 938 597](https://wa.me/966540938597)  
-☎️ **Phone**: +966 540 938 597  
-💬 **Telegram**: [@huzaifa_mahmood](https://t.me/huzaifa_mahmood)  
+<p align="center">
 
-### **Professional Networks**
-🔗 **LinkedIn**: [Huzaifa Mahmood](https://www.linkedin.com/in/huzaifa-mahmood-92427828b)  
-🐙 **GitHub**: [@Zaifsolutions](https://github.com/Zaifsolutions)  
-👥 **Facebook**: [ZaifSolutions](https://www.facebook.com/profile.php?id=61564216566814)  
+📧 **Email**  
+[![Email](https://img.shields.io/badge/Email-support%40zaifsecurity.pro-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:support@zaifsecurity.pro)
 
+📱 **WhatsApp**  
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat%20Now-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/966540938597)
+
+☎️ **Phone Call**  
+[![Phone](https://img.shields.io/badge/Call-+966%20540%20938%20597-blue?style=for-the-badge&logo=phone&logoColor=white)](tel:+966540938597)
+
+💬 **Telegram**  
+[![Telegram](https://img.shields.io/badge/Telegram-Message-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/huzaifa_mahmood)
+
+</p>
+
+---
+
+## 🌐 Professional Networks
+
+<p align="center">
+
+🔗 **LinkedIn**  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Huzaifa%20Mahmood-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/huzaifa-mahmood-92427828b)
+
+🐙 **GitHub**  
+[![GitHub](https://img.shields.io/badge/GitHub-Zaifsolutions-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Zaifsolutions)
+
+👥 **Facebook**  
+[![Facebook](https://img.shields.io/badge/Facebook-Profile-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/profile.php?id=61564216566814)
+
+</p>
 ---
 
 ## 📄 𝐋𝐢𝐜𝐞𝐧𝐬𝐞 & 𝐀𝐭𝐭𝐫𝐢𝐛𝐮𝐭𝐢𝐨𝐧𝐬
