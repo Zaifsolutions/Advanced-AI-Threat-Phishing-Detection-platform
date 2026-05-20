@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZaifSecurity | Advanced Phishing Detection Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">zaif<span>security</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#tools">TOOLS</a></li>
+            <li><a href="#workflow">WORKFLOW</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
+    </div>
+
+    <!-- ═══════════════════ HERO / SCANNER ═══════════════════ -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-badge">🛡️ Enterprise Grade Security</div>
+            <h1>Advanced Threat & <span>Phishing Detection</span></h1>
+            <p>Analyze emails, URLs, files, audio, and APKs using next-gen AI + ML detection.</p>
+
+            <div class="scanner-box glow-card">
+
+                <!-- Scan-type tabs -->
+                <div class="scan-tabs">
+                    <button class="scan-tab active" data-tab="text">
+                        <i class="fa-solid fa-envelope"></i> Email / Text
+                    </button>
+                    <button class="scan-tab" data-tab="url">
+                        <i class="fa-solid fa-link"></i> URL
+                    </button>
+                    <button class="scan-tab" data-tab="file">
+                        <i class="fa-solid fa-file-shield"></i> File
+                    </button>
+                    <button class="scan-tab" data-tab="audio">
+                        <i class="fa-solid fa-microphone"></i> Audio
+                    </button>
+                    <button class="scan-tab" data-tab="apk">
+                        <i class="fa-brands fa-android"></i> APK
+                    </button>
+                </div>
+
+                <!-- Text / Email panel -->
+                <div class="scan-panel active" id="panel-text">
+                    <div class="input-group textarea-group">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        <textarea id="textInput" rows="4"
+                            placeholder="Paste suspicious email body, message, or any text here…"></textarea>
+                    </div>
+                </div>
+
+                <!-- URL panel -->
+                <div class="scan-panel" id="panel-url">
+                    <div class="input-group">
+                        <i class="fa-solid fa-link"></i>
+                        <input type="text" id="urlInput"
+                            placeholder="https://suspicious-site.com/verify-account…">
+                    </div>
+                </div>
+
+                <!-- File panel -->
+                <div class="scan-panel" id="panel-file">
+                    <label class="file-upload file-upload-lg" id="fileLabel" for="universalInput">
+                        <i class="fa-solid fa-file-arrow-up"></i>
+                        <span>Drop files here (.txt, .eml, .pdf, .doc, .docx, .apk, .mp3, .wav), or click to browse</span>
+                    </label>
+                </div>
+
+               <!-- Audio panel -->
+               <div class="scan-panel" id="panel-audio">
+                  <label class="file-upload file-upload-lg" id="audioLabel" for="universalInput">
+                        <i class="fa-solid fa-microphone"></i>
+                        <span>Drop .mp3, .wav, .aac, .m4a or .mp4 file here, or click to browse</span>
+                    </label>
+                </div>
+
+                <!-- APK panel -->
+                <div class="scan-panel" id="panel-apk">
+                    <label class="file-upload file-upload-lg apk-upload" id="apkLabel" for="universalInput">
+                        <i class="fa-brands fa-android"></i>
+                        <span>Drop Android APK file here, or click to browse</span>
+                    </label>
+                </div>
+
+                <input type="file" id="universalInput" multiple style="position:absolute; left:-9999px; top:0; width:0; height:0; opacity:0; overflow:hidden;" aria-hidden="true">
+
+                <button id="analyzeBtn" class="glow-btn-red">
+                    <span>ANALYZE NOW</span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                </button>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item"><h3>10M+</h3><p>Threats Analyzed</p></div>
+                <div class="stat-item"><h3>99.8%</h3><p>Detection Accuracy</p></div>
+                <div class="stat-item"><h3>24/7</h3><p>Protection Active</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ RESULT SECTION ═══════════════════ -->
+    <section id="result" class="result-section hidden">
+        <h2 class="section-title">Analysis <span>Results</span></h2>
+        <div class="result-container glass-card">
+
+            <!-- Left: Circular meter -->
+            <div class="risk-meter">
+                <div class="circular-progress" id="progressCircle">
+                    <div class="inner-circle">
+                        <span id="riskPercentage">0%</span>
+                    </div>
+                </div>
+                <h3 id="riskStatus">Scanning…</h3>
+                <div class="score-breakdown" id="scoreBreakdown" style="display:none">
+                    <div class="score-bar-item">
+                        <span>Heuristic</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill" id="heuristicBar"></div>
+                        </div>
+                        <span id="heuristicVal">0%</span>
+                    </div>
+                    <div class="score-bar-item">
+                        <span>ML Model</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill ml-bar" id="mlBar"></div>
+                        </div>
+                        <span id="mlVal">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Detail cards -->
+            <div class="risk-details">
+                <!-- Tab buttons -->
+                <div class="detail-tabs">
+                    <button class="detail-tab active" data-detail="indicators">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Indicators
+                    </button>
+                    <button class="detail-tab" data-detail="reasons">
+                        <i class="fa-solid fa-note-sticky"></i> Analysis
+                    </button>
+                    <button class="detail-tab" data-detail="keywords">
+                        <i class="fa-solid fa-key"></i> Keywords
+                    </button>
+                    <button class="detail-tab" data-detail="urls">
+                        <i class="fa-solid fa-link"></i> URLs
+                    </button>
+                    <button class="detail-tab" data-detail="ml">
+                        <i class="fa-solid fa-brain"></i> ML
+                    </button>
+                    <button class="detail-tab" data-detail="details">
+                        <i class="fa-solid fa-list-check"></i> Details
+                    </button>
+                </div>
+
+                <div class="detail-panel active" id="detail-indicators">
+                    <h3>Threat Indicators:</h3>
+                    <ul id="reasonsList"><li><i class="fa-solid fa-spinner fa-spin"></i> Scanning…</li></ul>
+                </div>
+                <div class="detail-panel" id="detail-reasons">
+                    <h3>Analysis Summary:</h3>
+                    <div id="reasonsParagraph" class="reason-paragraph"></div>
+                </div>
+                <div class="detail-panel" id="detail-keywords">
+                    <h3>Suspicious Keywords:</h3>
+                    <div id="keywordsCloud" class="keywords-cloud"></div>
+                </div>
+                <div class="detail-panel" id="detail-urls">
+                    <h3>URL Risk Analysis:</h3>
+                    <div id="urlRisksList"></div>
+                </div>
+                <div class="detail-panel" id="detail-ml">
+                    <h3>ML Explainability:</h3>
+                    <div id="mlExplanation"></div>
+                </div>
+                <div class="detail-panel" id="detail-details">
+                    <h3>File/Content Details:</h3>
+                    <div id="detailsSection" class="details-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary bar (VirusTotal style) -->
+        <div class="vt-summary glass-card" id="vtSummary" style="display:none">
+            <div class="vt-item" id="vt-safe"><i class="fa-solid fa-check-circle"></i><span>Safe Signals</span><strong id="vtSafeCount">0</strong></div>
+            <div class="vt-item" id="vt-suspicious"><i class="fa-solid fa-exclamation-circle"></i><span>Suspicious</span><strong id="vtSuspCount">0</strong></div>
+            <div class="vt-item" id="vt-phishing"><i class="fa-solid fa-skull-crossbones"></i><span>Phishing/Malware</span><strong id="vtPhishCount">0</strong></div>
+            <div class="vt-item" id="vt-model"><i class="fa-solid fa-microchip"></i><span>ML Engine</span><strong id="vtModel">—</strong></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ TOOLS SECTION ═══════════════════ -->
+    <section id="tools" class="tools-section">
+        <h2 class="section-title">Security <span>Tools</span></h2>
+        <div class="tools-grid">
+            <div class="tool-card" data-tool="email">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fa-solid fa-envelope-open-text tool-icon"></i>
+                        <h3>Email Scanner</h3>
+                        <p>Analyze email headers and bodies</p>
+                        <div class="view-more">VIEW MORE</div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Email Scanner Pro</h4>
+                        <ul class="tool-features">
+                            <li><i class="fa-solid fa-check-circle"></i> SPF/DKIM verification</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Spoofing detection</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Header analysis</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Attachment scan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-card" data-tool="link">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fa-solid fa-globe tool-icon"></i>
+                        <h3>Link Scanner</h3>
+                        <p>Deep-scan URLs for malicious payloads</p>
+                        <div class="view-more">VIEW MORE</div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Link Analyzer</h4>
+                        <ul class="tool-features">
+                            <li><i class="fa-solid fa-check-circle"></i> URL reputation check</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Malware detection</li>
+                            <li><i class="fa-solid fa-check-circle"></i> SSL certificate scan</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Typosquatting detection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-card" data-tool="file">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fa-solid fa-file-shield tool-icon"></i>
+                        <h3>File Scanner</h3>
+                        <p>Detect hidden malware within files</p>
+                        <div class="view-more">VIEW MORE</div>
+                    </div>
+                    <div class="card-back">
+                        <h4>File Analysis Engine</h4>
+                        <ul class="tool-features">
+                            <li><i class="fa-solid fa-check-circle"></i> Malicious macro detection</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Payload extraction</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Multi-format support</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Hash matching</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-card" data-tool="apk">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fa-brands fa-android tool-icon"></i>
+                        <h3>APK Scanner</h3>
+                        <p>Static malware analysis for Android apps</p>
+                        <div class="view-more">VIEW MORE</div>
+                    </div>
+                    <div class="card-back">
+                        <h4>APK Analysis Engine</h4>
+                        <ul class="tool-features">
+                            <li><i class="fa-solid fa-check-circle"></i> Permission analysis</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Malware signatures</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Suspicious patterns</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Package verification</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ WORKFLOW ═══════════════════ -->
+    <section id="workflow" class="workflow-section">
+        <h2 class="section-title">How Our <span>Detection Works</span></h2>
+        <div class="workflow-container">
+            <div class="workflow-step">
+                <div class="step-number">01</div>
+                <div class="step-icon"><i class="fa-solid fa-upload"></i></div>
+                <h3>Submit Content</h3>
+                <p>Upload or paste any suspicious email, link, file, audio, or APK for analysis.</p>
+            </div>
+            <div class="workflow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="workflow-step">
+                <div class="step-number">02</div>
+                <div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <h3>AI Analysis</h3>
+                <p>Advanced ML models + heuristics scan for phishing patterns and malware.</p>
+            </div>
+            <div class="workflow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="workflow-step">
+                <div class="step-number">03</div>
+                <div class="step-icon"><i class="fa-solid fa-database"></i></div>
+                <h3>Database Check</h3>
+                <p>Cross-reference with global threat intelligence database.</p>
+            </div>
+            <div class="workflow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="workflow-step">
+                <div class="step-number">04</div>
+                <div class="step-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Risk Report</h3>
+                <p>Get detailed analysis with risk score, ML confidence, and recommendations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ ABOUT ═══════════════════ -->
+    <section id="about" class="about-section">
+        <div class="about-header">
+            <h2 class="section-title">About <span>Me</span></h2>
+        </div>
+        <div class="about-container">
+            <div class="about-card glass-card about-left">
+                <div class="about-image-wrapper">
+                    <div class="image-frame"><div class="image-glow"></div></div>
+                </div>
+            </div>
+            <div class="about-card glass-card about-right">
+                <div class="about-content">
+                    <h2 class="about-name">Huzaifa Mahmood</h2>
+                    <div class="professional-badges">
+                        <span class="badge">Security Researcher SRX</span>
+                        <span class="badge">Full Stack Web Developer</span>
+                        <span class="badge">Network Security Specialist</span>
+                    </div>
+                    <p class="about-description">
+                        I am a <strong>Certified Ethical Hacker</strong> with <strong>3+ years</strong> of expertise in cybersecurity and web development. I specialize in penetration testing, vulnerability assessment, and building fortress-like secure applications. My mission is delivering reliable, secure, and high-performance digital solutions that protect your digital assets from evolving threats.
+                    </p>
+                    <div class="skills-grid">
+                        <div class="skill-item"><i class="fa-solid fa-shield"></i><span>Penetration Testing</span></div>
+                        <div class="skill-item"><i class="fa-solid fa-bug"></i><span>Vulnerability Assessment</span></div>
+                        <div class="skill-item"><i class="fa-solid fa-code"></i><span>Secure Coding</span></div>
+                        <div class="skill-item"><i class="fa-solid fa-network-wired"></i><span>Network Security</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ SERVICES ═══════════════════ -->
+    <section id="services" class="services-section">
+        <h2 class="section-title">Services I <span>Provide</span></h2>
+        <div class="services-grid">
+            <div class="service-card"><div class="service-icon"><i class="fa-solid fa-bullseye"></i></div><div class="service-bubble"><h3>Penetration Testing (Web & Network)</h3><p class="service-desc">Complete security testing to identify vulnerabilities before attackers.</p></div></div>
+            <div class="service-card"><div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><div class="service-bubble"><h3>Vulnerability Assessment & Scanning</h3><p class="service-desc">Deep scanning to detect and report system weaknesses.</p></div></div>
+            <div class="service-card"><div class="service-icon"><i class="fa-solid fa-code"></i></div><div class="service-bubble"><h3>Secure Web Application Development</h3><p class="service-desc">Build secure apps protected against XSS, SQLi, CSRF.</p></div></div>
+            <div class="service-card"><div class="service-icon"><i class="fa-solid fa-bug"></i></div><div class="service-bubble"><h3>Bug Bounty Hunting & Reporting</h3><p class="service-desc">Find and responsibly report security bugs.</p></div></div>
+            <div class="service-card"><div class="service-icon"><i class="fa-solid fa-shield"></i></div><div class="service-bubble"><h3>Website Security Audit</h3><p class="service-desc">Full audit to uncover misconfigurations and risks.</p></div></div>
+            <div class="service-card"><div class="service-icon"><i class="fa-solid fa-key"></i></div><div class="service-bubble"><h3>Authentication & Access Control</h3><p class="service-desc">Implement JWT, OAuth, MFA-based secure systems.</p></div></div>
+            <div class="service-card"><div class="service-icon"><i class="fa-solid fa-triangle-exclamation"></i></div><div class="service-bubble"><h3>Incident Response & Threat Analysis</h3><p class="service-desc">Analyze attacks and secure systems post-breach.</p></div></div>
+            <div class="service-card"><div class="service-icon"><i class="fa-solid fa-server"></i></div><div class="service-bubble"><h3>Server & Network Hardening</h3><p class="service-desc">Secure servers, firewalls, and configurations.</p></div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CONTACT ═══════════════════ -->
+    <section id="contact" class="contact-section">
+        <div class="contact-wrapper">
+            <div class="socials-container glass-card">
+                <h3><i class="fa-solid fa-share-nodes"></i> Follow Us</h3>
+                <p>Connect across all platforms</p>
+                <div class="socials-grid">
+                    <a href="https://www.linkedin.com/in/huzaifa-mahmood-92427828b" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/Zaifsolutions" target="_blank" class="social-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="https://t.me/huzaifa_mahmood" target="_blank" class="social-btn"><i class="fa-brands fa-telegram"></i> Telegram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61564216566814" target="_blank" class="social-btn"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                    <a href="mailto:support@zaifsecurity.pro" class="social-btn"><i class="fa-solid fa-envelope"></i> Email</a>
+                    <a href="tel:0540938597" class="social-btn"><i class="fa-solid fa-phone"></i> Call</a>
+                </div>
+                <div class="contact-direct">
+                    <p><i class="fa-solid fa-envelope"></i> support@zaifsecurity.pro</p>
+                    <p><i class="fa-solid fa-phone"></i> +966 54 093 8597</p>
+                    <p><i class="fa-brands fa-whatsapp"></i> +966 54 093 8597</p>
+                </div>
+            </div>
+            <div class="form-container glass-card">
+                <h3><i class="fa-solid fa-envelope-open-text"></i> Get in Touch</h3>
+                <p>Send us a message</p>
+                <form id="contactForm">
+                    <div class="form-group"><label>Your Name</label><input type="text" required></div>
+                    <div class="form-group"><label>Email Address</label><input type="email" required></div>
+                    <div class="form-group"><label>Message</label><textarea rows="4" required></textarea></div>
+                    <button type="submit" class="glow-btn-green">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
