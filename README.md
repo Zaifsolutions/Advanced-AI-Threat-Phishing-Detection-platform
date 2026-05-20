@@ -162,7 +162,7 @@ Risk Score = (Heuristic Score × 0.60) + (ML Probability × 0.40)
 │ File Upload (Suspicious)                │ 1/1    │ ✅      │
 │ File Hashing (MD5/SHA256)               │ 1/1    │ ✅      │
 │ Output Format Validation                │ 1/1    │ ✅      │
-├─────────────────────────────────────────┼────────┼──────────┤
+├────────────────────────────────────────┼─────────┼──────────┤
 │ TOTAL                                   │ 11/11  │ ✅ 100%  │
 └─────────────────────────────────────────┴────────┴──────────┘
 ```
@@ -391,48 +391,48 @@ Response: {
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    FRONTEND (Web Interface)                       │
+│                    FRONTEND (Web Interface)                      │
 │  ┌────────────────────────────────────────────────────────────┐  │
-│  │ index.html | script.js | style.css                        │  │
-│  │ ├─ TEXT Tab       (Email/SMS Analysis)                    │  │
-│  │ ├─ URL Tab        (Domain/Link Analysis)                  │  │
-│  │ ├─ FILE Tab       (Document Malware Check)                │  │
-│  │ ├─ APK Tab        (Mobile Threat Detection)               │  │
-│  │ └─ Dashboard      (Results & Visualization)               │  │
+│  │ index.html | script.js | style.css                         │  │
+│  │ ├─ TEXT Tab       (Email/SMS Analysis)                     │  │
+│  │ ├─ URL Tab        (Domain/Link Analysis)                   │  │
+│  │ ├─ FILE Tab       (Document Malware Check)                 │  │
+│  │ ├─ APK Tab        (Mobile Threat Detection)                │  │
+│  │ └─ Dashboard      (Results & Visualization)                │  │
 │  └────────────────────────────────────────────────────────────┘  │
-└────────────────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────────────┘
                             ↕ (HTTP REST)
 ┌────────────────────────────────────────────────────────────────┐
-│             BACKEND (FastAPI Server - Port 8000)                │
+│             BACKEND (FastAPI Server - Port 8000)               │
 │  ┌────────────────────────────────────────────────────────────┐│
-│  │ CORE ANALYSIS ENGINES                                     ││
-│  │ ├─ TextAnalyzer      (350+ heuristic rules + ML)          ││
-│  │ ├─ URLAnalyzer       (Domain reputation + SSL check)      ││
-│  │ ├─ APKAnalyzer       (Signature + Permission analysis)    ││
-│  │ ├─ AudioAnalyzer     (Speech recognition + pattern match) ││
-│  │ └─ FileProcessor     (Multi-format text extraction)       ││
+│  │ CORE ANALYSIS ENGINES                                      ││
+│  │ ├─ TextAnalyzer      (350+ heuristic rules + ML)           ││
+│  │ ├─ URLAnalyzer       (Domain reputation + SSL check)       ││
+│  │ ├─ APKAnalyzer       (Signature + Permission analysis)     ││
+│  │ ├─ AudioAnalyzer     (Speech recognition + pattern match)  ││
+│  │ └─ FileProcessor     (Multi-format text extraction)        ││
 │  └────────────────────────────────────────────────────────────┘│
 │  ┌────────────────────────────────────────────────────────────┐│
-│  │ ML PREDICTION ENGINE                                      ││
-│  │ ├─ MLPredictor       (Scikit-learn TF-IDF + Classifier)   ││
-│  │ ├─ ml_model.pkl      (Trained on 10,000+ samples)         ││
-│  │ └─ tfidf_vectorizer.pkl (Feature transformation)          ││
+│  │ ML PREDICTION ENGINE                                       ││
+│  │ ├─ MLPredictor       (Scikit-learn TF-IDF + Classifier)    ││
+│  │ ├─ ml_model.pkl      (Trained on 10,000+ samples)          ││
+│  │ └─ tfidf_vectorizer.pkl (Feature transformation)           ││
 │  └────────────────────────────────────────────────────────────┘│
 │  ┌────────────────────────────────────────────────────────────┐│
-│  │ UTILITIES & MIDDLEWARE                                    ││
-│  │ ├─ CORS Middleware   (Cross-origin support)               ││
-│  │ ├─ Input Validation  (Pydantic models)                    ││
-│  │ ├─ Error Handling    (Graceful exceptions)                ││
-│  │ └─ Hashing           (MD5/SHA256 computation)             ││
+│  │ UTILITIES & MIDDLEWARE                                     ││
+│  │ ├─ CORS Middleware   (Cross-origin support)                ││
+│  │ ├─ Input Validation  (Pydantic models)                     ││
+│  │ ├─ Error Handling    (Graceful exceptions)                 ││
+│  │ └─ Hashing           (MD5/SHA256 computation)              ││
 │  └────────────────────────────────────────────────────────────┘│
 └────────────────────────────────────────────────────────────────┘
                             ↕ (File I/O)
 ┌────────────────────────────────────────────────────────────────┐
 │                    DATA & MODELS                               │
-│  ├─ ml_model.pkl              (Scikit-learn classifier)       │
-│  ├─ tfidf_vectorizer.pkl      (Feature vectorizer)            │
-│  ├─ data/phishing_emails.csv  (Training dataset)              │
-│  └─ Temporary upload storage  (Session-based)                 │
+│  ├─ ml_model.pkl              (Scikit-learn classifier)        │
+│  ├─ tfidf_vectorizer.pkl      (Feature vectorizer)             │
+│  ├─ data/phishing_emails.csv  (Training dataset)               │
+│  └─ Temporary upload storage  (Session-based)                  │
 └────────────────────────────────────────────────────────────────┘
 ```
 
