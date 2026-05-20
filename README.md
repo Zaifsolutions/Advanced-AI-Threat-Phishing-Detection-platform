@@ -16,7 +16,7 @@
 <tr>
 <td width="45%" align="center">
 
-<img src="https://github.com/Zaifsolutions/Advanced-AI-Threat-Phishing-Detection-platform/blob/main/zaifsec.jpeg" width="280" style="border-radius:15px; box-shadow:0 0 30px #00ff41;" />
+<img src="https://github.com/Zaifsolutions/Advanced-AI-Threat-Phishing-Detection-platform/blob/main/zaifsec.jpeg" width="380" style="border-radius:20px; box-shadow:0 0 30px #00ff41;" />
 
 </td>
 
